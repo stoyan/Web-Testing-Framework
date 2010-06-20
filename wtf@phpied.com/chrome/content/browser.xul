@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml" id="yslow-wtf-overlay">
+
+    <script type="application/x-javascript" src="chrome://wtf/content/wtf.js"></script>
+
+</overlay>

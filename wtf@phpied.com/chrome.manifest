@@ -1,0 +1,2 @@
+content		wtf		chrome/content/
+overlay		chrome://yslow/content/browser.xul		chrome://wtf/content/browser.xul

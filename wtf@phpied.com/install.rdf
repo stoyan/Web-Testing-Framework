@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$41y0G2"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="2"
+                   em:maxVersion="3.*" />
+  <RDF:Description RDF:about="urn:mozilla:install-manifest"
+                   em:id="wtf@phpied.com"
+                   em:name="Web Testing Framework"
+                   em:version="0.0.1"
+                   em:creator="Stoyan Stefanov"
+                   em:description="A YSlow extension for inspecting shady webdev practices"
+                   em:homepageURL="http://phpied.com/wtf/"
+                   em:iconURL="chrome://wtf/content/icon.png">
+    <em:targetApplication RDF:resource="rdf:#$41y0G2"/>
+  </RDF:Description>
+</RDF:RDF>
