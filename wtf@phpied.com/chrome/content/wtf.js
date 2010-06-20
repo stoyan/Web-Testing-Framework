@@ -6,19 +6,19 @@ YSLOW.registerRule({
     category: ['general'],
     config: {},
 
-	lint: function (doc, cset, config) {
-		var count = doc.getElementsByTagName('blink').length,
-		    message = '';
-		    
-		if (count) {
-		    message = YSLOW.util.plural('Oh my, %num% blink tag%s%, <blink style="color:red">seriously?</blink>', count);
-		}
-		
-		return {
-		    score: count ? 1 : 100,
-		    message: message
-		};
-	}
+    lint: function (doc, cset, config) {
+        var count = doc.getElementsByTagName('blink').length,
+            message = '';
+            
+        if (count) {
+            message = YSLOW.util.plural('Oh my, %num% blink tag%s%, <blink style="color:red">seriously?</blink>', count);
+        }
+        
+        return {
+            score: count ? 1 : 100,
+            message: message
+        };
+    }
 });
 
 
@@ -30,19 +30,19 @@ YSLOW.registerRule({
     category: ['general'],
     config: {},
 
-	lint: function (doc, cset, config) {
-		var count = doc.getElementsByTagName('marquee').length,
-		    message = '';
-		    
-		if (count) {
-		    message = YSLOW.util.plural('Ah-ha, %num% marquee tag%s%, impressive!', count);
-		}
-		
-		return {
-		    score: count ? 1 : 100,
-		    message: message
-		};
-	}
+    lint: function (doc, cset, config) {
+        var count = doc.getElementsByTagName('marquee').length,
+            message = '';
+            
+        if (count) {
+            message = YSLOW.util.plural('Ah-ha, %num% marquee tag%s%, impressive!', count);
+        }
+        
+        return {
+            score: count ? 1 : 100,
+            message: message
+        };
+    }
 });
 
 YSLOW.registerRule({
@@ -54,19 +54,19 @@ YSLOW.registerRule({
         points: 21
     },
 
-	lint: function (doc, cset, config) {
-		var count = doc.getElementsByTagName('font').length,
-		    message = '';
-		    
-		if (count) {
-		    message = YSLOW.util.plural('%num% font tag%s% - must be one hell of a web page', count);
-		}
-		
-		return {
-		    score: count ? 100 - count * config.points : 100,
-		    message: message
-		};
-	}
+    lint: function (doc, cset, config) {
+        var count = doc.getElementsByTagName('font').length,
+            message = '';
+            
+        if (count) {
+            message = YSLOW.util.plural('%num% font tag%s% - must be one hell of a web page', count);
+        }
+        
+        return {
+            score: count ? 100 - count * config.points : 100,
+            message: message
+        };
+    }
 });
 
 YSLOW.registerRule({
@@ -76,19 +76,19 @@ YSLOW.registerRule({
     category: ['general'],
     config: {},
 
-	lint: function (doc, cset, config) {
-		var dtype = doc.doctype,
-		    message = '';
-		    
-		if (!dtype) {
-		    message = "The page doesn't have a doctype";
-		}
-		
-		return {
-		    score: !dtype ? 1 : 100,
-		    message: message
-		};
-	}
+    lint: function (doc, cset, config) {
+        var dtype = doc.doctype,
+            message = '';
+            
+        if (!dtype) {
+            message = "The page doesn't have a doctype";
+        }
+        
+        return {
+            score: !dtype ? 1 : 100,
+            message: message
+        };
+    }
 });
 
 
@@ -102,35 +102,35 @@ YSLOW.registerRule({
         points: 21
     },
 
-	lint: function (doc, cset, config) {
-		var images = doc.images,
-		    i = 0, max = images.length,
-		    message = '',
-		    count = 0,
-		    url,
-		    img,
-		    re = new RegExp(config.hints.join('|'), 'i');
-		
-		
-		for (i = 0; i < max; i += 1) {
-		    img = images[i];
-		    url = img.src;
-		    url = url.split('/').pop();
-		    if (re.test(url) && img.naturalWidth === 1 && img.naturalHeight === 1) {
-		        count += 1;
-		    }
-		}
-		
-		    
-		if (count) {
-		    message = YSLOW.util.plural('%num% spacer GIF%s% found', count);
-		}
-		
-		return {
-		    score: count ? 100 - count * config.points : 100,
-		    message: message
-		};
-	}
+    lint: function (doc, cset, config) {
+        var images = doc.images,
+            i = 0, max = images.length,
+            message = '',
+            count = 0,
+            url,
+            img,
+            re = new RegExp(config.hints.join('|'), 'i');
+        
+        
+        for (i = 0; i < max; i += 1) {
+            img = images[i];
+            url = img.src;
+            url = url.split('/').pop();
+            if (re.test(url) && img.naturalWidth === 1 && img.naturalHeight === 1) {
+                count += 1;
+            }
+        }
+        
+            
+        if (count) {
+            message = YSLOW.util.plural('%num% spacer GIF%s% found', count);
+        }
+        
+        return {
+            score: count ? 100 - count * config.points : 100,
+            message: message
+        };
+    }
 });
 
 
@@ -144,30 +144,30 @@ YSLOW.registerRule({
         points: 21
     },
 
-	lint: function (doc, cset, config) {
-	    
-		var links = doc.links,
-		    i, max = links.length,
-	        href,
-		    message = '',
-		    count = 0;
-		
-		for (i = 0; i < max; i += 1) {
-		    href = links[i].getAttribute('href').toString();
-		    if (href === "#" || href.indexOf('javascript:') === 0) {
-		        count += 1;
-		    }
-		}
-		
-		if (count) {
-		    message = YSLOW.util.plural('Found %num% link%s% with non-semantic href attributes', count);
-		}
-		
-		return {
-		    score: count ? 100 - count * config.points : 100,
-		    message: message
-		};
-	}
+    lint: function (doc, cset, config) {
+        
+        var links = doc.links,
+            i, max = links.length,
+            href,
+            message = '',
+            count = 0;
+        
+        for (i = 0; i < max; i += 1) {
+            href = links[i].getAttribute('href').toString();
+            if (href === "#" || href.indexOf('javascript:') === 0) {
+                count += 1;
+            }
+        }
+        
+        if (count) {
+            message = YSLOW.util.plural('Found %num% link%s% with non-semantic href attributes', count);
+        }
+        
+        return {
+            score: count ? 100 - count * config.points : 100,
+            message: message
+        };
+    }
 });
 
 
@@ -183,13 +183,13 @@ YSLOW.registerRuleset({
         'wtf-spacer': {},
         'wtf-hashlinks': {}
     },
-	weights: {
+    weights: {
         'wtf-blink': 1,
         'wtf-marquee': 1,
         'wtf-font': 1,
         'wtf-doctype': 1,
         'wtf-spacer': 1,
         'wtf-hashlinks': 1
-	}
+    }
 });
 
