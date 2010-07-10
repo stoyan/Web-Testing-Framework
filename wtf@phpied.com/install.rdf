@@ -9,7 +9,7 @@
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
                    em:id="wtf@phpied.com"
                    em:name="Web Testing Framework"
-                   em:version="0.0.1"
+                   em:version="0.1.0"
                    em:creator="Stoyan Stefanov"
                    em:description="A YSlow extension for inspecting shady webdev practices"
                    em:homepageURL="http://phpied.com/wtf/"
